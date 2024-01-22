@@ -11,8 +11,10 @@ let numeroUsuario = 0;
 let intentos = 1;
 
 //variable tipo string para el contador que varia la linguistica de vez o veces que acierta el usuario
-let palabraVeces = 'vez';
+//let palabraVeces = 'vez';
 
+//variable para maximo de intentos
+let maximosIntentos = 3;
 
 //while persona no acierte compara para repitir la accion de jugar hasta ganar
 while (numeroUsuario != numeroSecreto) {
@@ -25,8 +27,8 @@ while (numeroUsuario != numeroSecreto) {
     Realiza la comparacion if and else
     */
     if(numeroUsuario == numeroSecreto) {
-        //Acertamos, fue verdadero, se usa: Template strings una interpolacion
-        alert(`Acertaste, el numero es: ${numeroUsuario}. Lo hiciste en ${intentos} ${palabraVeces}`);
+        //Acertamos, fue verdadero, se usa: Template strings una interpolacion con operador ternario
+        alert(`Acertaste, el numero es: ${numeroUsuario}. Lo hiciste en ${intentos} ${intentos == 1 ? 'vez' : 'veces'}`);
     } else {
         //No Acertamos, es falso, con condicion if  else anidado
         if (numeroUsuario > numeroSecreto){
@@ -35,8 +37,19 @@ while (numeroUsuario != numeroSecreto) {
             alert("El numero secreto es mayor");
         }
         //Incrementar contador explicito cuando persona no acierta
-        intentos = intentos + 1;
+        //intentos = intentos + 1;
+
+        //optimizar el incremento del contador, parecido a lenguaje C
+        //intentos += 1;
+        intentos++;
+
         //Actualizar tras el incremento del contador para variable palabraVeces
-        palabraVeces = 'veces';
+        //palabraVeces = 'veces';
+
+        //funcionalidad: Numero Maximo de intentos con if break
+        if (intentos > maximosIntentos){
+            alert(`Llegaste al numero maximo de: ${maximosIntentos} intentos`);
+            break;
+        }
     }
 }
