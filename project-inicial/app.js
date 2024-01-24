@@ -1,8 +1,11 @@
 //mensaje de bienvenida
 alert("Bienvenidos al juego del numero secreto");
 
+//varaible para numeros de 1 a 10 u otro como 100
+let numeroMaximoPosible = 100;
+
 //variable declarada y asignada, cambiar el valor pseudo-aleatorio random y floor con funcion math
-let numeroSecreto = Math.floor(Math.random()*10)+1;
+let numeroSecreto = Math.floor(Math.random()*numeroMaximoPosible)+1;
 
 //variable valor inicial, se salio esta variable del while
 let numeroUsuario = 0;
@@ -14,7 +17,7 @@ let intentos = 1;
 //let palabraVeces = 'vez';
 
 //variable para maximo de intentos
-let maximosIntentos = 3;
+let maximosIntentos = 6;
 
 //console.log para verificar el funcionamiento de pseudo-aleatorio
 //console.log(numeroSecreto);
@@ -22,7 +25,7 @@ let maximosIntentos = 3;
 //while persona no acierte compara para repitir la accion de jugar hasta ganar
 while (numeroUsuario != numeroSecreto) {
     //parseInt(); para una conversion al entero, almacena en variable 
-     numeroUsuario = parseInt(prompt("Me indicas un numero entre 1 y 10, por favor: "));
+     numeroUsuario = parseInt(prompt(`Me indicas un numero entre 1 y ${numeroMaximoPosible}, por favor: `));
 
     //consola
     console.log(typeof(numeroUsuario));
