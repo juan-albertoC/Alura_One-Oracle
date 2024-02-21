@@ -13,8 +13,7 @@
 //asignacion de la funcion a la variable de ambito global
 let numeroSecreto = generarNumeroSecreto();
 
-//verificar su funcionamiento
-console.log(numeroSecreto);
+
 
 //encapsulamiento
 function asignarTextoElemento(elemento, texto){
@@ -23,11 +22,25 @@ function asignarTextoElemento(elemento, texto){
     return;   //No retorna nada
 }
 
-
-function intentoDeUsuario(){
+//antes intentoDeUsuario, cambio de nombre de la funcion verificarIntento()
+function verificarIntento(){
     //mensaje de alert tras hacer click en el boton
-    alert('Click desde el boton');
-    return;   //No retorna nada, colocarlo por buena practica 
+    //alert('Click desde el boton');
+    //return;   //No retorna nada, colocarlo por buena practica 
+    //input es una etiqueta html que representa a la caja de texto
+    
+    //forma 1
+    //let numeroDeUsuario = document.querySelector('input');
+    // forma 2 con una funcion para buscar por id junto con parseInt conversion
+    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
+    //retornar el valor para ello con el . todo lo que el elemento tiene como value
+    //verificar su funcionamiento
+    console.log(typeof(numeroDeUsuario)); // para saber eltipo de valor que esta retornando
+    console.log(numeroSecreto);
+    console.log(typeof(numeroSecreto));
+    console.log(numeroDeUsuario); //probar funcionalidad
+    console.log(numeroDeUsuario === numeroSecreto); //implicito booleano,triple === en valor y en tipo de dato
+    return;
 }
 
 //funcion que genera un numero aleatorio
