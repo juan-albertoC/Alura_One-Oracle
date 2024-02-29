@@ -1,4 +1,9 @@
 let numeroSecreto = generarNumeroSecreto();
+//contador para saber el numero de intentos que hace el usuario
+let intentos = 1;// al menos una vez para asertar
+
+//hacer trampa para saber cual es el numero secreto
+//console.log(numeroSecreto);
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -12,11 +17,11 @@ function verificarIntento(){
 
     //para ver cual es el numero(prueba trampa)
     //console.log(numeroSecreto);
-
+    console.log(intentos);
     if(numeroDeUsuario === numeroSecreto){
         
         //reutilizar funcion
-        asignarTextoElemento('p','Acertaste al numero');
+        asignarTextoElemento('p',`Acertaste el numero en ${intentos} ${(intentos === 1) ? 'vez':'veces'}`);
     } else{
         //No acertaste
         if(numeroDeUsuario > numeroSecreto){
@@ -24,6 +29,8 @@ function verificarIntento(){
         } else{  
             asignarTextoElemento('p','El numero secreto es mayor');
         }
+       intentos++; //contador incrementa
+       //mostrarlo  pero mejor hasta el momento usar un console.log
     }
     return;
 }
