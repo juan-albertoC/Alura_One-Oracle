@@ -22,6 +22,8 @@ function verificarIntento(){
         
         //reutilizar funcion
         asignarTextoElemento('p',`Acertaste el numero en ${intentos} ${(intentos === 1) ? 'vez':'veces'}`);
+        //boton nuevo juego, nueva jugada
+        document.getElementById('reiniciar').removeAttribute('disabled');
     } else{
         //No acertaste
         if(numeroDeUsuario > numeroSecreto){
@@ -31,8 +33,19 @@ function verificarIntento(){
         }
        intentos++; //contador incrementa
        //mostrarlo  pero mejor hasta el momento usar un console.log
+       //invocar la funcion limpiar caja
+       limpiarCaja();
     }
     return;
+}
+
+function limpiarCaja(){
+    //id en el #, querySelector generico
+   let valorCaja = document.querySelector('#valorUsuario');
+   valorCaja.value = ''; 
+
+   //simplificar
+   //document.querySelector('#valorUsuario').value = '';
 }
 
 function generarNumeroSecreto(){
