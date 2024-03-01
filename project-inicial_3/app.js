@@ -1,9 +1,15 @@
-let numeroSecreto = generarNumeroSecreto();
-//contador para saber el numero de intentos que hace el usuario
-let intentos = 1;// al menos una vez para asertar
+//declaracion variables
+let numeroSecreto = 0; 
+// antes let numeroSecreto = generarNumeroSecreto();
+
+
+let intentos = 0;
 
 //hacer trampa para saber cual es el numero secreto
 //console.log(numeroSecreto);
+
+
+//----------------------FUNCIONES DEL PROGRAMA--------------------------
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -53,7 +59,30 @@ function generarNumeroSecreto(){
 
 }
 
-//llamar e invocar la funcion y paso de valor de los parametros
+
+function condicionesIniciales(){
+//funcionalidad de mensajes con paso de valor de los parametros
 asignarTextoElemento('h1','Juego del numero secreto!');
 
 asignarTextoElemento('p','Indica un numero del 1 al 10, por favor');
+
+  //----CONDICIONES INICIALES----
+   //funcionalidad generar numero aleatorio nueva llamada a funcion
+   numeroSecreto = generarNumeroSecreto();
+   
+   //funcionalidad inicializar numero de intentos  al menos una vez para asertar que es un contador para saber el numero de intentos que hace el usuario
+   intentos = 1;
+}
+
+
+function reiniciarJuego(){
+    //invocar funcionalidad
+    limpiarCaja();
+    //funcionalidad mensajes iniciales
+    condicionesIniciales();
+    //funcionalidad que permita finalizar el juego
+    document.querySelector('#reiniciar').setAttribute('disabled', 'true');
+}
+
+//llamar e invocar la funcion que da valores iniciales
+condicionesIniciales();
