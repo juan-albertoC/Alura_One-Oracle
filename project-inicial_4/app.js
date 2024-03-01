@@ -2,6 +2,11 @@ let numeroSecreto = 0;
 
 let intentos = 0;
 
+//declarar lista de numeros sorteados
+let listaNumerosSorteados = [];
+
+console.log(numeroSecreto);
+
 //----------------------FUNCIONES DEL PROGRAMA--------------------------
 
 function asignarTextoElemento(elemento, texto){
@@ -42,9 +47,29 @@ function limpiarCaja(){
 
 }
 
+//almacenar elementos de la lista en el array para ello una funcion
 function generarNumeroSecreto(){
-    return Math.floor(Math.random()*10)+1;
+    //return Math.floor(Math.random()*10)+1;
+    
+     let numeroGenerado = Math.floor(Math.random()*10)+1;
+      
+     //console.log para la lista y numero generado
+     console.log(numeroGenerado);
+     console.log(listaNumerosSorteados);
+     
+     //si numero generado esta en la lista es decir si el numero generado esta incluido en la lista
+     if (listaNumerosSorteados.includes(numeroGenerado)){
+        //elemento ya existe en la lista recursividad llamar misma funcion
+        return generarNumeroSecreto(); //reutilizar la funcionalidad
+        
 
+     } else {
+        //elemnto no existe manda el nuevo elemento al final con el metodo push
+        listaNumerosSorteados.push(numeroGenerado);
+        
+
+        return numeroGenerado;
+     }
 }
 
 
